@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AffiPin Pro Tool</title>
+  <style>
+    body { font-family: sans-serif; background: #f5faff; margin: 0; padding: 0; }
+    header { background: #005eb8; color: white; padding: 20px; text-align: center; }
+    main { padding: 20px; }
+    .section { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .hidden { display: none; }
+    input, textarea, select { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    button { background: #005eb8; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 15px; cursor: pointer; }
+    .pro-features { background: #e0f0ff; padding: 15px; border-left: 5px solid #005eb8; margin-top: 20px; }
+    .footer { text-align: center; padding: 20px; font-size: 0.9em; color: #888; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to AffiPin Pro Tool</h1>
+    <p>Create Pinterest posts with affiliate links - Effortlessly!</p>
+    <p>Contact us: <strong>affipinpro@gmail.com</strong></p>
+  </header>
+
+  <main>
+    <div class="section">
+      <h2>Free Version</h2>
+      <p>Generate Pinterest content manually. Add your product link and create your own title, description, and hashtag.</p>
+      <input type="text" id="freeLink" placeholder="Enter your affiliate product link" />
+      <button onclick="generateFree()">Generate Manually</button>
+      <div id="freeOutput" class="hidden">
+        <p><strong>Title:</strong> <span id="freeTitle"></span></p>
+        <p><strong>Description:</strong> <span id="freeDesc"></span></p>
+        <p><strong>Hashtags:</strong> <span id="freeTags"></span></p>
+        <p><strong>Image:</strong> <span id="freeImage"></span></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Unlock Pro Version</h2>
+      <p>Pro Version Price: <strong>$5/month</strong></p>
+      <p>Contact: <strong>affipinpro@gmail.com</strong></p>
+      <input type="text" id="unlockCode" placeholder="Enter your unlock code" />
+      <button onclick="unlockPro()">Unlock</button>
+
+      <div id="proVersion" class="hidden">
+        <div class="pro-features">
+          <h3>Pro Features</h3>
+          <ul>
+            <li>Auto-generate Title, Description, Hashtags</li>
+            <li>AI-generated Image</li>
+            <li>Post Scheduling</li>
+            <li>Post Analytics</li>
+          </ul>
+        </div>
+        <input type="text" id="proLink" placeholder="Enter your product link" />
+        <button onclick="generatePro()">Generate Automatically</button>
+        <div id="proOutput" class="hidden">
+          <p><strong>Title:</strong> <span id="proTitle">AI Generated Title</span></p>
+          <p><strong>Description:</strong> <span id="proDesc">AI Generated Description</span></p>
+          <p><strong>Hashtags:</strong> <span id="proTags">#Auto #Generated #Hashtags</span></p>
+          <p><strong>Image:</strong> <span id="proImage">[Generated Image]</span></p>
+          <p><strong>Scheduled Post:</strong> Tomorrow at 10:00AM</p>
+          <p><strong>Analytics:</strong> Views: 102 | Saves: 30 | Clicks: 12</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="footer">
+    &copy; 2025 AffiPin Pro. All rights reserved.
+  </div>
+
+  <script>
+    function generateFree() {
+      document.getElementById("freeTitle").innerText = "Your Custom Title";
+      document.getElementById("freeDesc").innerText = "Your Custom Description";
+      document.getElementById("freeTags").innerText = "#Your #Hashtags";
+      document.getElementById("freeImage").innerText = "Upload your own image";
+      document.getElementById("freeOutput").classList.remove("hidden");
+    }
+
+    function unlockPro() {
+      const code = document.getElementById("unlockCode").value;
+      if (code === "UNLOCKAFFIPIN5") {
+        document.getElementById("proVersion").classList.remove("hidden");
+        alert("Pro version unlocked!");
+      } else {
+        alert("Invalid code. Please enter a valid unlock code.");
+      }
+    }
+
+    function generatePro() {
+      document.getElementById("proOutput").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
